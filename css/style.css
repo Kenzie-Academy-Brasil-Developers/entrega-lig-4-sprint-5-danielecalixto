@@ -1,25 +1,13 @@
-.table {
-    display: flex;
-    border: solid 2px red;
-    height: 400px;
-    width: 500px;
-    margin: 0 auto;
-    
+#tabela {
+    display: inline-block;
 }
 
-.column1, .column2, .column3, .column4, .column5, .column6, .column7 {
-    background-color: purple;
-    height: 400px;
-    width: 71px;
-    display: flex;
-    flex-direction: column-reverse;
-    justify-content: space-evenly;
-    align-items: center;
+.linha {
+    height: 100px;
 }
 
-.circles {
-    height: 50px;
-    width: 50px;
-    border-radius: 50%;
-    background-color: white;
+.coluna {
+    height: 100px;
+    width: 100px;
+    display: inline-block;
 }
