@@ -1,0 +1,13 @@
+#tabela {
+    display: inline-block;
+}
+
+.linha {
+    height: 100px;
+}
+
+.coluna {
+    height: 100px;
+    width: 100px;
+    display: inline-block;
+}
