@@ -1,9 +1,40 @@
 //DANI
+const criarArray = () => {
+    let tabela = [];
+    let coluna = [];
+    for (let i=0; i<6; i++) {
+        coluna.push(" ");
+    }
+    for (let j=0; j<7; j++) {
+        tabela.push(coluna);
+    }
+    console.log(tabela);
+}
+criarArray();
 
+const criarTabela = () => {
+    const main = document.querySelector("main");
+    const jogo = document.createElement("section");
+    jogo.setAttribute("id", "jogo");
+    main.appendChild(jogo);
+
+    for(let i=0; i<7; i++) {
+        const colunas = document.createElement("div");
+        colunas.classList.add(`coluna${i+1}`);
+        jogo.appendChild(colunas);
+        for(let j=0; j<6; j++) {
+            const celulas = document.createElement("div");
+            celulas.classList.add(`celula${j+1}`);
+            colunas.appendChild(celulas);
+        } 
+    }   
+}
+criarTabela();
 
 
 
 //GABRIEL
+/*
 const criarTabela = () => {
     const body = document.querySelector('body')
     const tabela = document.createElement('div')
@@ -24,7 +55,7 @@ const criarTabela = () => {
     }   
 }
 criarTabela()
-
+*/
 
 
 //LUIZA
