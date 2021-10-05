@@ -31,7 +31,60 @@ const criarTabela = () => {
 }
 criarTabela();
 
+//DANI VITORIA
 
+function vitoria(jog) {
+    let resultado = false;
+    
+    for (let i=0; i<7; i++) {
+        for (let j=0; j<3; j++) {
+            if (tabela[i][j]==jog && tabela[i][j+1]==jog && tabela[i][j+2]==jog && tabela[i][j+3]==jog) {
+                //VITORIA VERTICAL
+                resultado = true;
+            }
+        }
+    }
+    switch (resultado) {
+        case true:
+            break;
+        case false:
+            for (let i=0; i<4; i++) {
+                for (let j=0; j<6; j++) {
+                    if (tabela[i][j]==jog && tabela[i+1][j]==jog && tabela[i+2][j]==jog && tabela[i+3][j]==jog) {
+                        //VITORIA HORIZONTAL
+                        resultado = true;
+                    }
+                }
+            }
+        case true:
+            break;
+        case false:
+            for (let i=0; i<4; i++) {
+                for (let j=0; j<3; j++) {
+                    if (tabela[i][j]==jog && tabela[i+1][j+1]==jog && tabela[i+2][j+2]==jog && tabela[i+3][j+3]==jog) {
+                        //VITORIA DIAGONAL
+                        resultado = true;
+                    }
+                }
+            }
+        case true:
+            break;
+        case false:
+            for (let i=6; i>2; i--) {
+                for (let j=5; j>1; j--) {
+                    if (tabela[i][j]==jog && tabela[i+1][j+1]==jog && tabela[i+2][j+2]==jog && tabela[i+3][j+3]==jog) {
+                        //VITORIA DIAGONAL INVERSA
+                        resultado = true;
+                    }
+                }
+            }
+        }    
+}
+
+function vencedor(jogador) {
+    vitoria(jogador);
+    //Faz alguma coisa com o vencedor
+}
 
 //GABRIEL
 /*
@@ -88,3 +141,5 @@ criarTabela()
  coluna4.addEventListener("click", criarDiscos);
  coluna5.addEventListener("click", criarDiscos);
 
+
+ 
