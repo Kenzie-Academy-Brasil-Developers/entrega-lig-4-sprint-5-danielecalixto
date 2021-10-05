@@ -1,13 +1,23 @@
 #tabela {
-    display: inline-block;
+    display: flex;
+    background-color: red;
+    height: 600px;
+    width: 700px;
+    margin: 0 auto;
+}
+
+.coluna1, .coluna2, .coluna3, .coluna4, .coluna5, .coluna6, .coluna7 {
+    width: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
 }
 
 .linha {
-    height: 100px;
-}
-
-.coluna {
-    height: 100px;
-    width: 100px;
+    height: 70px;
+    width: 70px;
     display: inline-block;
+    background-color: white;
+    border-radius: 50%;
 }

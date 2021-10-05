@@ -1,7 +1,6 @@
 //DANI
 
 
-//LUIZA
 
 
 //GABRIEL
@@ -11,16 +10,50 @@ const criarTabela = () => {
     body.appendChild(tabela)
         .setAttribute('id', 'tabela')
          
-    for(let i = 0; i < 6; i++){
-        const linhas = document.createElement('div')
+    for(let i = 0; i < 7; i++){
+        const colunas = document.createElement('div')
+        colunas.classList.add(`coluna${i+1}`)
                 
-        for(let j = 0; j < 7; j++){
-            const colunas = document.createElement('div')
+        for(let j = 0; j < 6; j++){
+            const linhas = document.createElement('div')
                 
-            linhas.appendChild(colunas)   
-                .classList.add('coluna') 
-        }   tabela.appendChild(linhas)
-                .classList.add('linha')
+            colunas.appendChild(linhas)   
+                .classList.add('linha') 
+        }   tabela.appendChild(colunas)
+                //.classList.add('linha')
     }   
 }
 criarTabela()
+
+
+
+//LUIZA
+ const coluna1 = document.querySelector(".coluna1");
+ const coluna2 = document.querySelector(".coluna2");
+ const coluna3 = document.querySelector(".coluna3");
+ const coluna4 = document.querySelector(".coluna4");
+ const coluna5 = document.querySelector(".coluna5");
+ const coluna6 = document.querySelector(".coluna6");
+
+ const criarDiscos = () => {
+    discos1 = coluna1.lastChild;
+    discos1.style.backgroundColor = "yellow";
+    discos2 = coluna2.lastChild;
+    discos2.style.backgroundColor = "yellow";
+    discos3 = coluna3.lastChild;
+    discos3.style.backgroundColor = "yellow";
+    discos4 = coluna4.lastChild;
+    discos4.style.backgroundColor = "yellow";
+    discos5 = coluna5.lastChild;
+    discos5.style.backgroundColor = "yellow";
+    discos6 = coluna6.lastChild;
+    discos6.style.backgroundColor = "yellow";
+ }
+
+ coluna1.addEventListener("click", criarDiscos);
+ coluna2.addEventListener("click", criarDiscos);
+ coluna2.addEventListener("click", criarDiscos);
+ coluna3.addEventListener("click", criarDiscos);
+ coluna4.addEventListener("click", criarDiscos);
+ coluna5.addEventListener("click", criarDiscos);
+
