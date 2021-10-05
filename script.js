@@ -78,11 +78,17 @@ function vitoria(jog) {
                     }
                 }
             }
-        }    
+        }  
+        return resultado  
 }
 
 function vencedor(jogador) {
-    vitoria(jogador);
+    const section = document.querySelector('.secVitoria')
+    const msg = document.createElement('p')
+    if(vitoria(jogador) === true){
+        msg.innerText = `Parabéns, ${jogador}. Você venceu!`
+        section.appendChild(msg)
+    };
     //Faz alguma coisa com o vencedor
 }
 
