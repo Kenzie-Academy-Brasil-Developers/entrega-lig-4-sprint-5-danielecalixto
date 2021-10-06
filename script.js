@@ -81,7 +81,7 @@ function vitoria(jog) {
                 }
             }
         }  
-        return resultado  
+        return resultado;
 }
 
 function vencedor(jogador) {
@@ -128,7 +128,15 @@ criarTabela()
  const coluna5 = document.querySelector(".coluna5");
  const coluna6 = document.querySelector(".coluna6");
 
-let indice = 0;
+let indiceColuna = 0;
+let indiceLinha = 0;
+let indiceLinha0 = 0;
+let indiceLinha1 = 0;
+let indiceLinha2 = 0;
+let indiceLinha3 = 0;
+let indiceLinha4 = 0;
+let indiceLinha5 = 0;
+let indiceLinha6 = 0;
 
 let jogador = "X";
 const criarDiscos = (evt) => {
@@ -138,26 +146,57 @@ const criarDiscos = (evt) => {
     if (evt.currentTarget.childElementCount >=0 && evt.currentTarget.childElementCount <6) {
         evt.currentTarget.appendChild(discoJogador1);
     }
-    for(let i=0; i<tabela[indice].length; i++) {
-         if (tabela[indice][i] === " ")
-         tabela[indice][i] = jogador;
-         console.log (tabela);
-    }
     if(jogador === "X"){
         jogador = "Y";
     }
     else if(jogador === "Y"){
         jogador = "X";
     }
+    tabela[indiceColuna][indiceLinha] = jodador;
  }
 
- coluna0.addEventListener("click", criarDiscos);
- coluna1.addEventListener("click", criarDiscos);
- coluna2.addEventListener("click", criarDiscos);
- coluna3.addEventListener("click", criarDiscos);
- coluna4.addEventListener("click", criarDiscos);
- coluna5.addEventListener("click", criarDiscos);
- coluna6.addEventListener("click", criarDiscos);
+ coluna0.addEventListener('click', function(){
+    indiceColuna = 0;
+    indiceLinha0++;
+    indiceLinha = indiceLinha0;
+    criarDiscos();
+ });
+ coluna1.addEventListener('click', function(){
+    indiceColuna = 1;
+    indiceLinha1++;
+    indiceLinha = indiceLinha1;
+    criarDiscos();
+ });
+ coluna2.addEventListener('click', function(){
+    indiceColuna = 2;
+    indiceLinha2++;
+    indiceLinha = indiceLinha2;
+    criarDiscos();
+ });
+ coluna3.addEventListener('click', function(){
+    indiceColuna = 3;
+    indiceLinha3++;
+    indiceLinha = indiceLinha3;
+    criarDiscos();
+ });
+ coluna4.addEventListener('click', function(){
+    indiceColuna = 4;
+    indiceLinha4++;
+    indiceLinha = indiceLinha4;
+    criarDiscos();
+ });
+ coluna5.addEventListener('click', function(){
+    indiceColuna = 5;
+    indiceLinha5++;
+    indiceLinha = indiceLinha5;
+    criarDiscos();
+ });
+ coluna6.addEventListener('click', function(){
+    indiceColuna = 6;
+    indiceLinha6++;
+    indiceLinha = indiceLinha6;
+    criarDiscos();
+ });
 
 
  
