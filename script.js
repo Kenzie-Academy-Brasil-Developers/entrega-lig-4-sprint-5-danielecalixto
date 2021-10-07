@@ -58,6 +58,15 @@ function vitoria(jog) {
                         }
                     }
                 }
+                if (resultado == false) {
+                    let conteEspaco = 0;
+                    for (let i=0; i<7; i++) {
+                        for (let j=0; j<6; j++) {
+                            if(tabela[i][j]==" ") conteEspaco++;
+                        }
+                    }
+                    if (conteEspaco==0) resultado = "empate";
+                }
             }
         }
     }
