@@ -130,7 +130,7 @@ criarTabela()
 
 let indice = 0;
 
-
+let jogador = "X";
 const criarDiscos = (evt) => {
     console.log(evt.currentTarget)
     const discoJogador1 = document.createElement("div");
@@ -139,9 +139,15 @@ const criarDiscos = (evt) => {
         evt.currentTarget.appendChild(discoJogador1);
     }
     for(let i=0; i<tabela[indice].length; i++) {
-         if (tabela[indice][i] === " ");
-         tabela[indice][i] = "X";
+         if (tabela[indice][i] === " ")
+         tabela[indice][i] = jogador;
          console.log (tabela);
+    }
+    if(jogador === "X"){
+        jogador = "Y";
+    }
+    else if(jogador === "Y"){
+        jogador = "X";
     }
  }
 
