@@ -1,33 +1,94 @@
+@font-face {
+    font-family: StarWars;
+    src: url(../fonts/stjelogo/Stjldbl1.ttf);
+}
+
+body {
+    background-image: url("../img/background-mobile.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+h1 {
+    height: 120px;
+    font-family: StarWars;
+    color: #FFFFFF;
+    font-size: 90px;
+    text-align: center;
+    margin-bottom: 60px;
+}
+
 #jogo {
     display: flex;
-    background-color: red;
     height: 560px;
-    width: 700px;
+    width: 850px;
     margin: 0 auto;
 }
 
 .coluna0, .coluna1, .coluna2, .coluna3, .coluna4, .coluna5, .coluna6 {
     width: 100px;
     display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
+    flex-direction: column-reverse;
+    justify-content: flex-start;
     align-items: center;
-    border: solid 1px black;
+    background: #FFFFFF;
+    background: -webkit-radial-gradient(center, #FFFFFF, #D8DADB);
+    background: -moz-radial-gradient(center, #FFFFFF, #D8DADB);
+    background: radial-gradient(ellipse at center, #FFFFFF, #D8DADB);
+    border-radius: 50px;
+    margin-left: 15px;
+    margin-right: 15px;
+    box-shadow: 0 0 1em white;
 }
 
-.celula0, .celula1, .celula2, .celula3, .celula4, .celula5, .discoJogador1 {
+
+
+.celula0, .celula1, .celula2, .celula3, .celula4, .celula5, .discoJogadorX, .discoJogadorY {
     height: 70px;
     width: 70px;
-    display: inline-block;
-    background-color: white;
     border-radius: 50%;
     margin-bottom: 20px;
+    
 }
 
-.played1 {
-    background-color: yellow;
+.discoJogadorX {
+    background: #37C5F7;
+    background: -webkit-radial-gradient(center, #37C5F7, #0729E9);
+    background: -moz-radial-gradient(center, #37C5F7, #0729E9);
+    background: radial-gradient(ellipse at center, #37C5F7, #0729E9);
+    box-shadow: 0 0 1em blue;
+}   
+
+.discoJogadorY {
+    background: #ECADAD;
+    background: -webkit-radial-gradient(center, #ECADAD, #FF0104);
+    background: -moz-radial-gradient(center, #ECADAD, #FF0104);
+    background: radial-gradient(ellipse at center, #ECADAD, #FF0104);
+    box-shadow: 0 0 1em red;
+}
+.msgVitoria{
+    background-color: rgb(175, 175, 175);
+    position: relative;
+    height: 10vh;
+    width: 50vw;
+    left: 25vw;
+    right: 25vw;
+}
+.msgVitoria p{
+    color:black;
 }
 
-.played2 {
-    background-color: black;
+@media (min-width: 768px) and (orientation: landscape) {
+    body{
+        background-image: url("../img/background-desktop.jpg");
+        background-size: cover;
+        background-repeat: no-repeat;
+    }
+    .coluna0, .coluna1, .coluna2, .coluna3, .coluna4, .coluna5, .coluna6 {
+        box-shadow: none;
+    }
+
+    .coluna0:hover, .coluna1:hover, .coluna2:hover, .coluna3:hover, .coluna4:hover, .coluna5:hover, .coluna6:hover {
+        box-shadow: 0 0 1em white;
+    }
 }
