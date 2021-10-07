@@ -82,12 +82,20 @@ function vencedor(jogador){
     const sec = document.createElement('section')
     sec.classList.add('msgVitoria')
 
-    const msg = document.createElement('p')
+    const p1 = document.createElement('p')
+    const p2 = document.createElement('p')
+    p2.innerText = "Obrigado por Jogar!"
     if(vitoria(jogador) === true){
         jogoVenc.appendChild(sec)
-        msg.innerText = `Parabéns, ${jogador}. Você venceu!`
-        sec.appendChild(msg)
+        p1.innerText = `Parabéns, ${jogador}. Você venceu!`
+
     }
+    else if(vitoria(jogador) === "empate"){
+        jogoVenc.appendChild(sec)
+        p1.innerText = "O Jogo Empatou!"
+    }
+    sec.appendChild(p1)
+    sec.appendChild(p2)
 }
 
 const coluna0 = document.querySelector(".coluna0");
@@ -112,10 +120,10 @@ let classe = "discoJogadorY";
 
 function contarCliques() {
         if (conteCliques%2===0 ) {
-            jogador = "X";
+            jogador = "Vermelho";
             classe = "discoJogadorX";
         } else {
-            jogador = "Y";
+            jogador = "Azul";
             classe = "discoJogadorY";
         }
     }
