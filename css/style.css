@@ -7,15 +7,71 @@ body {
     background-image: url("../img/background-mobile.jpg");
     background-size: auto auto;
     background-repeat: no-repeat;
+    height: 100%;
+    font-family: sans-serif;
+}
+header {
+    height: 235px;
+    margin-bottom: 20px;
 }
 
-h1 {
-    height: 120px;
+header h1 {
     font-family: StarWars;
     color: #FFFFFF;
-    font-size: 90px;
+    font-size: 62px;
     text-align: center;
-    margin-bottom: 60px;
+    margin: 15px 0 40px 0;
+    height: 144px;
+}
+header p {
+    color: #FFFFFF;
+    text-align: center;
+    font-size: 22px;
+    text-transform: uppercase;
+    font-weight: bold;
+    margin: 0 40px
+}
+
+.gameStart {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 300px;
+    margin: 30px;
+    padding: 10px 35px;
+    background: #FFFFFF;
+    background: -webkit-radial-gradient(center, #FFFFFF, #D8DADB);
+    background: -moz-radial-gradient(center, #FFFFFF, #D8DADB);
+    background: radial-gradient(ellipse at center, #FFFFFF, #D8DADB);
+    border-radius: 50px;
+    box-shadow: 0 0 1em white;
+}
+
+.gameStart p {
+    font-size: 18px;
+}
+
+.gameStart p b {
+    font-weight: bold;
+    color: #0729E9;
+    font-family: StarWars;
+}
+
+.gameStart .buttonStart {
+    padding: 20px 70px 25px 70px;
+    background-color: #0729E9;
+    border-radius: 20px 0;
+    border: none;
+    font-size: 18px;
+    font-family: StarWars;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+.gameStart .buttonStart:hover {
+    border-radius: 0 20px;
+    color: #FFFFFF;
+    cursor: pointer;
 }
 
 #jogo {
@@ -41,9 +97,7 @@ h1 {
     box-shadow: 0 0 1em white;
 }
 
-
-
-.celula0, .celula1, .celula2, .celula3, .celula4, .celula5, .discoJogadorX, .discoJogadorY {
+.discoJogadorX, .discoJogadorY {
     height: 70px;
     width: 70px;
     border-radius: 50%;
@@ -86,6 +140,8 @@ h1 {
 
 }
 
+
+
 @media (min-width: 768px) and (orientation: landscape) {
     body{
         background-image: url("../img/background-desktop.jpg");
@@ -96,7 +152,8 @@ h1 {
         box-shadow: none;
     }
 
-    .coluna0:hover, .coluna1:hover, .coluna2:hover, .coluna3:hover, .coluna4:hover, .coluna5:hover, .coluna6:hover {
+    .coluna0:hover, .coluna1:hover, .coluna2:hover, .coluna3:hover, .coluna4:hover, .coluna5:hover, .coluna6:hover, .gameStart:hover {
         box-shadow: 0 0 1em white;
+        cursor: pointer;
     }
 }
