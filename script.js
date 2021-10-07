@@ -67,18 +67,31 @@ function vitoria(jog) {
     return resultado;
 }
 
-function vencedor(jogador) {
-    const body = document.querySelector('body')
-    const section = document.createElement('section')
-    section.classList.add('msgVitoria')
+
+function vencedor(jogador){
+    const main = document.querySelector('main')
+    const sec = document.createElement('section')
+    sec.classList.add('msgVitoria')
+
     const msg = document.createElement('p')
     if(vitoria(jogador) === true){
-        body.appendChild(section)
+        main.appendChild(sec)
         msg.innerText = `Parabéns, ${jogador}. Você venceu!`
-        section.appendChild(msg);
-    };
-    //Faz alguma coisa com o vencedor
+        sec.appendChild(msg)
+    }
 }
+
+// function vencedor(jogador) {
+//     const section = document.querySelector('.msgVitoria')
+    
+//     const msg = document.createElement('p')
+//     if(vitoria(jogador) === true){
+      
+//         msg.innerText = `Parabéns, ${jogador}. Você venceu!`
+//         section.appendChild(msg);
+//     };
+//     //Faz alguma coisa com o vencedor
+// }
 
 const coluna0 = document.querySelector(".coluna0");
 const coluna1 = document.querySelector(".coluna1");
