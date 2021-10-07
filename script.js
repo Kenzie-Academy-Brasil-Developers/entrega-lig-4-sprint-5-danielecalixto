@@ -1,3 +1,6 @@
+const buttonStart = document.querySelector(".buttonStart")
+
+const start = () => {
 let tabela = [[" ", " ", " ", " ", " ", " "],
               [" ", " ", " ", " ", " ", " "],
               [" ", " ", " ", " ", " ", " "],
@@ -65,7 +68,7 @@ function vitoria(jog) {
 }
 
 function vencedor(jogador) {
-    const body = document.getElementsByTagName('body')
+    const body = document.querySelector('body')
     const section = document.createElement('section')
     section.classList.add('msgVitoria')
     const msg = document.createElement('p')
@@ -94,23 +97,23 @@ let indiceLinha3 = 0;
 let indiceLinha4 = 0;
 let indiceLinha5 = 0;
 let indiceLinha6 = 0;
-let conteCliques = 0;
-let classe = "";
+let conteCliques = 1;
+let classe = "discoJogadorX";
 
 function contarCliques() {
-    conteCliques++;
-    if (conteCliques%2==0 ) {
-        jogador = "Y";
-        classe = "discoJogadorY";
-    } else {
-        jogador = "X";
-        classe = "discoJogadorX";
+        if (conteCliques%2===0 ) {
+            jogador = "Y";
+            classe = "discoJogadorY";
+        } else {
+            jogador = "X";
+            classe = "discoJogadorX";
+        }
     }
-}
 
 let jogador = "";
+
 const criarDiscos = (evt) => {    
-    contarCliques();
+
     tabela[indiceColuna][indiceLinha] = jogador;
 
     const discoJogador = document.createElement("div");
@@ -118,6 +121,8 @@ const criarDiscos = (evt) => {
 
     if (evt.currentTarget.childElementCount >=0 && evt.currentTarget.childElementCount <6) {
         evt.currentTarget.appendChild(discoJogador);
+        conteCliques++;
+        contarCliques();
     }
     vencedor(jogador);
  }
@@ -170,7 +175,15 @@ coluna1.addEventListener('click', function(){
     indiceLinha = indiceLinha6-1;
  });
  coluna6.addEventListener('click', criarDiscos);
-
-
-
  
+ const inicioDoJogo = () => {
+    const gameStart = document.querySelector(".gameStart");
+    gameStart.innerHTML = "";
+    gameStart.style.display = "none";
+ }
+ inicioDoJogo();
+}
+
+
+
+ buttonStart.addEventListener("click", start)
