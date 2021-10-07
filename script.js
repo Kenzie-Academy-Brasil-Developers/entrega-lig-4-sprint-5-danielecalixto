@@ -61,37 +61,34 @@ function vitoria(jog) {
                         }
                     }
                 }
+                if (resultado == false) {
+                    let conteEspaco = 0;
+                    for (let i=0; i<7; i++) {
+                        for (let j=0; j<6; j++) {
+                            if(tabela[i][j]==" ") conteEspaco++;
+                        }
+                    }
+                    if (conteEspaco==0) resultado = "empate";
+                }
             }
         }
     }
+    console.log(resultado);
     return resultado;
 }
 
-
 function vencedor(jogador){
-    const main = document.querySelector('main')
+    const jogoVenc = document.querySelector('#jogo')
     const sec = document.createElement('section')
     sec.classList.add('msgVitoria')
 
     const msg = document.createElement('p')
     if(vitoria(jogador) === true){
-        main.appendChild(sec)
+        jogoVenc.appendChild(sec)
         msg.innerText = `Parabéns, ${jogador}. Você venceu!`
         sec.appendChild(msg)
     }
 }
-
-// function vencedor(jogador) {
-//     const section = document.querySelector('.msgVitoria')
-    
-//     const msg = document.createElement('p')
-//     if(vitoria(jogador) === true){
-      
-//         msg.innerText = `Parabéns, ${jogador}. Você venceu!`
-//         section.appendChild(msg);
-//     };
-//     //Faz alguma coisa com o vencedor
-// }
 
 const coluna0 = document.querySelector(".coluna0");
 const coluna1 = document.querySelector(".coluna1");
@@ -111,23 +108,21 @@ let indiceLinha4 = 0;
 let indiceLinha5 = 0;
 let indiceLinha6 = 0;
 let conteCliques = 1;
-let classe = "discoJogadorX";
+let classe = "discoJogadorY";
 
 function contarCliques() {
         if (conteCliques%2===0 ) {
-            jogador = "Y";
-            classe = "discoJogadorY";
-        } else {
             jogador = "X";
             classe = "discoJogadorX";
+        } else {
+            jogador = "Y";
+            classe = "discoJogadorY";
         }
     }
 
 let jogador = "";
 
-const criarDiscos = (evt) => {    
-
-    tabela[indiceColuna][indiceLinha] = jogador;
+const criarDiscos = (evt) => {     
 
     const discoJogador = document.createElement("div");
     discoJogador.classList.add(classe)
@@ -136,6 +131,8 @@ const criarDiscos = (evt) => {
         evt.currentTarget.appendChild(discoJogador);
         conteCliques++;
         contarCliques();
+        tabela[indiceColuna][indiceLinha] = jogador;
+        console.log(tabela);
     }
     vencedor(jogador);
  }
