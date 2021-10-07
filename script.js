@@ -1,17 +1,11 @@
 //DANI
-let tabela = [];
-
-const criarArray = () => {
-    let coluna = [];
-    for (let i=0; i<6; i++) {
-        coluna.push(" ");
-    }
-    for (let j=0; j<7; j++) {
-        tabela.push(coluna);
-    }
-    console.log(tabela);
-}
-criarArray();
+let tabela = [[" ", " ", " ", " ", " ", " "],
+              [" ", " ", " ", " ", " ", " "],
+              [" ", " ", " ", " ", " ", " "],
+              [" ", " ", " ", " ", " ", " "],
+              [" ", " ", " ", " ", " ", " "],
+              [" ", " ", " ", " ", " ", " "],
+              [" ", " ", " ", " ", " ", " "]];
 
 const criarTabela = () => {
     const main = document.querySelector("main");
@@ -46,21 +40,16 @@ function vitoria(jog) {
             }
         }
     }
-    switch (resultado) {
-        case true:
-            break;
-        case false:
-            for (let i=0; i<4; i++) {
-                for (let j=0; j<6; j++) {
-                    if (tabela[i][j]==jog && tabela[i+1][j]==jog && tabela[i+2][j]==jog && tabela[i+3][j]==jog) {
-                        //VITORIA HORIZONTAL
-                        resultado = true;
-                    }
+    if (resultado == false) {
+        for (let i=0; i<4; i++) {
+            for (let j=0; j<6; j++) {
+                if (tabela[i][j]==jog && tabela[i+1][j]==jog && tabela[i+2][j]==jog && tabela[i+3][j]==jog) {
+                    //VITORIA HORIZONTAL
+                    resultado = true;
                 }
             }
-        case true:
-            break;
-        case false:
+        }
+        if (resultado == false) {
             for (let i=0; i<4; i++) {
                 for (let j=0; j<3; j++) {
                     if (tabela[i][j]==jog && tabela[i+1][j+1]==jog && tabela[i+2][j+2]==jog && tabela[i+3][j+3]==jog) {
@@ -69,19 +58,20 @@ function vitoria(jog) {
                     }
                 }
             }
-        case true:
-            break;
-        case false:
-            for (let i=6; i>2; i--) {
-                for (let j=5; j>1; j--) {
-                    if (tabela[i][j]==jog && tabela[i+1][j+1]==jog && tabela[i+2][j+2]==jog && tabela[i+3][j+3]==jog) {
-                        //VITORIA DIAGONAL INVERSA
-                        resultado = true;
+            if (resultado == false) {
+                for (let i=6; i>2; i--) {
+                    for (let j=0; j<3; j++) {
+                        if (tabela[i][j]==jog && tabela[i-1][j+1]==jog && tabela[i-2][j+2]==jog && tabela[i-3][j+3]==jog) {
+                            //VITORIA DIAGONAL INVERSA
+                            resultado = true;
+                        }
                     }
                 }
             }
-        }  
-        return resultado;
+        }
+    }
+    console.log(resultado);
+    return resultado;
 }
 
 function vencedor(jogador) {
@@ -89,7 +79,7 @@ function vencedor(jogador) {
     const msg = document.createElement('p')
     if(vitoria(jogador) === true){
         msg.innerText = `Parabéns, ${jogador}. Você venceu!`
-        section.appendChild(msg)
+        section.appendChild(msg);
     };
     //Faz alguma coisa com o vencedor
 }
@@ -137,66 +127,87 @@ let indiceLinha3 = 0;
 let indiceLinha4 = 0;
 let indiceLinha5 = 0;
 let indiceLinha6 = 0;
+let conteCliques = 0;
+let classe = "";
 
-let jogador = "X";
-const criarDiscos = (evt) => {
+function contarCliques() {
+    conteCliques++;
+    if (conteCliques%2==0 ) {
+        jogador = "Y";
+        classe = ".discoJogadorY";
+    } else {
+        jogador = "X";
+        classe = ".discoJogadorX";
+    }
+}
+
+let jogador = "";
+const criarDiscos = (evt) => {    
+    contarCliques();
+    tabela[indiceColuna][indiceLinha] = jogador;
+    console.log(tabela);
+    
     console.log(evt.currentTarget)
     const discoJogador1 = document.createElement("div");
     discoJogador1.classList.add("discoJogador1")
+
+    // discoJogador.classList.add(classe);
+
     if (evt.currentTarget.childElementCount >=0 && evt.currentTarget.childElementCount <6) {
         evt.currentTarget.appendChild(discoJogador1);
     }
-    if(jogador === "X"){
-        jogador = "Y";
-    }
-    else if(jogador === "Y"){
-        jogador = "X";
-    }
-    tabela[indiceColuna][indiceLinha] = jodador;
+    vencedor(jogador);
  }
 
  coluna0.addEventListener('click', function(){
     indiceColuna = 0;
     indiceLinha0++;
-    indiceLinha = indiceLinha0;
-    criarDiscos();
+    indiceLinha = indiceLinha0-1;
  });
- coluna1.addEventListener('click', function(){
+coluna0.addEventListener('click', criarDiscos);
+
+coluna1.addEventListener('click', function(){
     indiceColuna = 1;
     indiceLinha1++;
-    indiceLinha = indiceLinha1;
-    criarDiscos();
+    indiceLinha = indiceLinha1-1;
  });
+ coluna1.addEventListener('click', criarDiscos);
+
  coluna2.addEventListener('click', function(){
     indiceColuna = 2;
     indiceLinha2++;
-    indiceLinha = indiceLinha2;
-    criarDiscos();
+    indiceLinha = indiceLinha2-1;
  });
+ coluna2.addEventListener('click', criarDiscos);
+
  coluna3.addEventListener('click', function(){
     indiceColuna = 3;
     indiceLinha3++;
-    indiceLinha = indiceLinha3;
-    criarDiscos();
+    indiceLinha = indiceLinha3-1;
  });
+ coluna3.addEventListener('click', criarDiscos);
+
  coluna4.addEventListener('click', function(){
     indiceColuna = 4;
     indiceLinha4++;
-    indiceLinha = indiceLinha4;
-    criarDiscos();
+    indiceLinha = indiceLinha4-1;
  });
+ coluna4.addEventListener('click', criarDiscos);
+
  coluna5.addEventListener('click', function(){
     indiceColuna = 5;
     indiceLinha5++;
-    indiceLinha = indiceLinha5;
-    criarDiscos();
+    indiceLinha = indiceLinha5-1;
  });
+ coluna5.addEventListener('click', criarDiscos);
+
  coluna6.addEventListener('click', function(){
     indiceColuna = 6;
     indiceLinha6++;
-    indiceLinha = indiceLinha6;
-    criarDiscos();
+    indiceLinha = indiceLinha6-1;
  });
+ coluna6.addEventListener('click', criarDiscos);
+
 
 
  
