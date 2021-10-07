@@ -73,7 +73,6 @@ function vitoria(jog) {
             }
         }
     }
-    console.log(resultado);
     return resultado;
 }
 
@@ -81,12 +80,18 @@ function vencedor(jogador){
     const jogoVenc = document.querySelector('#jogo')
     const sec = document.createElement('section')
     sec.classList.add('msgVitoria')
-
     const msg = document.createElement('p')
     if(vitoria(jogador) === true){
         jogoVenc.appendChild(sec)
         msg.innerText = `Parabéns, ${jogador}. Você venceu!`
         sec.appendChild(msg)
+        coluna0.removeEventListener("click", criarDiscos, false);
+        coluna1.removeEventListener("click", criarDiscos, false);
+        coluna2.removeEventListener("click", criarDiscos, false);
+        coluna3.removeEventListener("click", criarDiscos, false);
+        coluna4.removeEventListener("click", criarDiscos, false);
+        coluna5.removeEventListener("click", criarDiscos, false);
+        coluna6.removeEventListener("click", criarDiscos, false);
     }
 }
 
@@ -132,7 +137,6 @@ const criarDiscos = (evt) => {
         conteCliques++;
         contarCliques();
         tabela[indiceColuna][indiceLinha] = jogador;
-        console.log(tabela);
     }
     vencedor(jogador);
  }
