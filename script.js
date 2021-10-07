@@ -73,7 +73,6 @@ function vitoria(jog) {
             }
         }
     }
-    console.log(resultado);
     return resultado;
 }
 
@@ -96,6 +95,14 @@ function vencedor(jogador){
     }
     sec.appendChild(p1)
     sec.appendChild(p2)
+    
+    coluna0.removeEventListener("click", criarDiscos, false);
+    coluna1.removeEventListener("click", criarDiscos, false);
+    coluna2.removeEventListener("click", criarDiscos, false);
+    coluna3.removeEventListener("click", criarDiscos, false);
+    coluna4.removeEventListener("click", criarDiscos, false);
+    coluna5.removeEventListener("click", criarDiscos, false);
+    coluna6.removeEventListener("click", criarDiscos, false);
 }
 
 const coluna0 = document.querySelector(".coluna0");
@@ -140,7 +147,6 @@ const criarDiscos = (evt) => {
         conteCliques++;
         contarCliques();
         tabela[indiceColuna][indiceLinha] = jogador;
-        console.log(tabela);
     }
     vencedor(jogador);
  }
