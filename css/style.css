@@ -1,10 +1,8 @@
 body {
     background-image: url("../img/background-mobile.jpg");
 }
-
 #jogo {
     display: flex;
-    background-color: red;
     height: 560px;
     width: 700px;
     margin: 0 auto;
@@ -16,7 +14,17 @@ body {
     flex-direction: column-reverse;
     justify-content: flex-start;
     align-items: center;
-    border: solid 1px black;
+    background: #FFFFFF;
+    background: -webkit-radial-gradient(center, #FFFFFF, #D8DADB);
+    background: -moz-radial-gradient(center, #FFFFFF, #D8DADB);
+    background: radial-gradient(ellipse at center, #FFFFFF, #D8DADB);
+    border-radius: 50px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.coluna0:hover, .coluna1:hover, .coluna2:hover, .coluna3:hover, .coluna4:hover, .coluna5:hover, .coluna6:hover {
+    box-shadow: 0 0 1em white;
 }
 
 .celula0, .celula1, .celula2, .celula3, .celula4, .celula5, .discoJogadorX, .discoJogadorY {
@@ -24,17 +32,24 @@ body {
     width: 70px;
     border-radius: 50%;
     margin-bottom: 20px;
+    
 }
 
 .discoJogadorX {
-
-    background-color: yellow;
-}
+    background: #37C5F7;
+    background: -webkit-radial-gradient(center, #37C5F7, #0729E9);
+    background: -moz-radial-gradient(center, #37C5F7, #0729E9);
+    background: radial-gradient(ellipse at center, #37C5F7, #0729E9);
+    box-shadow: 0 0 1em blue;
+}   
 
 .discoJogadorY {
-    background-color: black;
+    background: #ECADAD;
+    background: -webkit-radial-gradient(center, #ECADAD, #FF0104);
+    background: -moz-radial-gradient(center, #ECADAD, #FF0104);
+    background: radial-gradient(ellipse at center, #ECADAD, #FF0104);
+    box-shadow: 0 0 1em red;
 }
-
 .msgVitoria{
     background-color: rgb(175, 175, 175);
     position: relative;
