@@ -1,4 +1,3 @@
-//DANI
 let tabela = [[" ", " ", " ", " ", " ", " "],
               [" ", " ", " ", " ", " ", " "],
               [" ", " ", " ", " ", " ", " "],
@@ -17,17 +16,9 @@ const criarTabela = () => {
         const colunas = document.createElement("div");
         colunas.classList.add(`coluna${i}`);
         jogo.appendChild(colunas);
-        
-        // for(let j=0; j<6; j++) {
-        // const celulas = document.createElement("div");
-        // celulas.classList.add(`celula${j}`);
-        // colunas.appendChild(celulas);
-        //  } 
     }   
 }
 criarTabela();
-
-//DANI VITORIA
 
 function vitoria(jog) {
     let resultado = false;
@@ -70,7 +61,6 @@ function vitoria(jog) {
             }
         }
     }
-    console.log(resultado);
     return resultado;
 }
 
@@ -84,39 +74,13 @@ function vencedor(jogador) {
     //Faz alguma coisa com o vencedor
 }
 
-//GABRIEL
-/*
-const criarTabela = () => {
-    const body = document.querySelector('body')
-    const tabela = document.createElement('div')
-    body.appendChild(tabela)
-        .setAttribute('id', 'tabela')
-         
-    for(let i = 0; i < 7; i++){
-        const colunas = document.createElement('div')
-        colunas.classList.add(`coluna${i+1}`)
-                
-        for(let j = 0; j < 6; j++){
-            const linhas = document.createElement('div')
-                
-            colunas.appendChild(linhas)   
-                .classList.add('linha') 
-        }   tabela.appendChild(colunas)
-                //.classList.add('linha')
-    }   
-}
-criarTabela()
-*/
-
-
-//LUIZA
- const coluna0 = document.querySelector(".coluna0");
- const coluna1 = document.querySelector(".coluna1");
- const coluna2 = document.querySelector(".coluna2");
- const coluna3 = document.querySelector(".coluna3");
- const coluna4 = document.querySelector(".coluna4");
- const coluna5 = document.querySelector(".coluna5");
- const coluna6 = document.querySelector(".coluna6");
+const coluna0 = document.querySelector(".coluna0");
+const coluna1 = document.querySelector(".coluna1");
+const coluna2 = document.querySelector(".coluna2");
+const coluna3 = document.querySelector(".coluna3");
+const coluna4 = document.querySelector(".coluna4");
+const coluna5 = document.querySelector(".coluna5");
+const coluna6 = document.querySelector(".coluna6");
 
 let indiceColuna = 0;
 let indiceLinha = 0;
@@ -134,10 +98,10 @@ function contarCliques() {
     conteCliques++;
     if (conteCliques%2==0 ) {
         jogador = "Y";
-        classe = ".discoJogadorY";
+        classe = "discoJogadorY";
     } else {
         jogador = "X";
-        classe = ".discoJogadorX";
+        classe = "discoJogadorX";
     }
 }
 
@@ -145,16 +109,12 @@ let jogador = "";
 const criarDiscos = (evt) => {    
     contarCliques();
     tabela[indiceColuna][indiceLinha] = jogador;
-    console.log(tabela);
-    
-    console.log(evt.currentTarget)
-    const discoJogador1 = document.createElement("div");
-    discoJogador1.classList.add("discoJogador1")
 
-    // discoJogador.classList.add(classe);
+    const discoJogador = document.createElement("div");
+    discoJogador.classList.add(classe)
 
     if (evt.currentTarget.childElementCount >=0 && evt.currentTarget.childElementCount <6) {
-        evt.currentTarget.appendChild(discoJogador1);
+        evt.currentTarget.appendChild(discoJogador);
     }
     vencedor(jogador);
  }
