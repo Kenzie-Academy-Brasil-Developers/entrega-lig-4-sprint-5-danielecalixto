@@ -65,9 +65,12 @@ function vitoria(jog) {
 }
 
 function vencedor(jogador) {
-    const section = document.querySelector('.secVitoria')
+    const body = document.getElementsByTagName('body')
+    const section = document.createElement('section')
+    section.classList.add('msgVitoria')
     const msg = document.createElement('p')
     if(vitoria(jogador) === true){
+        body.appendChild(section)
         msg.innerText = `Parabéns, ${jogador}. Você venceu!`
         section.appendChild(msg);
     };
