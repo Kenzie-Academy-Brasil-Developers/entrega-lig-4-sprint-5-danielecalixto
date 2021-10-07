@@ -83,26 +83,32 @@ function vencedor(jogador){
 
     const p1 = document.createElement('p')
     const p2 = document.createElement('p')
-    p2.innerText = "Obrigado por Jogar!"
+    p2.innerText = "obrigado por jogar"
     if(vitoria(jogador) === true){
         jogoVenc.appendChild(sec)
-        p1.innerText = `Parabéns, ${jogador}. Você venceu!`
+        p1.innerText = `parabéns, ${jogador}. você venceu`
+        coluna0.removeEventListener("click", criarDiscos, false);
+        coluna1.removeEventListener("click", criarDiscos, false);
+        coluna2.removeEventListener("click", criarDiscos, false);
+        coluna3.removeEventListener("click", criarDiscos, false);
+        coluna4.removeEventListener("click", criarDiscos, false);
+        coluna5.removeEventListener("click", criarDiscos, false);
+        coluna6.removeEventListener("click", criarDiscos, false);
 
     }
     else if(vitoria(jogador) === "empate"){
         jogoVenc.appendChild(sec)
-        p1.innerText = "O Jogo Empatou!"
+        p1.innerText = "o jogo empatou"
+        coluna0.removeEventListener("click", criarDiscos, false);
+        coluna1.removeEventListener("click", criarDiscos, false);
+        coluna2.removeEventListener("click", criarDiscos, false);
+        coluna3.removeEventListener("click", criarDiscos, false);
+        coluna4.removeEventListener("click", criarDiscos, false);
+        coluna5.removeEventListener("click", criarDiscos, false);
+        coluna6.removeEventListener("click", criarDiscos, false);
     }
     sec.appendChild(p1)
     sec.appendChild(p2)
-    
-    coluna0.removeEventListener("click", criarDiscos, false);
-    coluna1.removeEventListener("click", criarDiscos, false);
-    coluna2.removeEventListener("click", criarDiscos, false);
-    coluna3.removeEventListener("click", criarDiscos, false);
-    coluna4.removeEventListener("click", criarDiscos, false);
-    coluna5.removeEventListener("click", criarDiscos, false);
-    coluna6.removeEventListener("click", criarDiscos, false);
 }
 
 const coluna0 = document.querySelector(".coluna0");
@@ -127,10 +133,10 @@ let classe = "discoJogadorY";
 
 function contarCliques() {
         if (conteCliques%2===0 ) {
-            jogador = "Vermelho";
+            jogador = "vermelho";
             classe = "discoJogadorX";
         } else {
-            jogador = "Azul";
+            jogador = "azul";
             classe = "discoJogadorY";
         }
     }
