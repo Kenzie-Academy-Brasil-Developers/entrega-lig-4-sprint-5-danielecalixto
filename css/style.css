@@ -1,3 +1,7 @@
+body {
+    background-image: url("../img/background-mobile.jpg");
+}
+
 #jogo {
     display: flex;
     background-color: red;
@@ -9,25 +13,44 @@
 .coluna0, .coluna1, .coluna2, .coluna3, .coluna4, .coluna5, .coluna6 {
     width: 100px;
     display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
+    flex-direction: column-reverse;
+    justify-content: flex-start;
     align-items: center;
     border: solid 1px black;
 }
 
-.celula0, .celula1, .celula2, .celula3, .celula4, .celula5, .discoJogador1 {
+.celula0, .celula1, .celula2, .celula3, .celula4, .celula5, .discoJogadorX, .discoJogadorY {
     height: 70px;
     width: 70px;
-    display: inline-block;
-    background-color: white;
     border-radius: 50%;
     margin-bottom: 20px;
 }
 
-.played1 {
+.discoJogadorX {
+
     background-color: yellow;
 }
 
-.played2 {
+.discoJogadorY {
     background-color: black;
+}
+
+.msgVitoria{
+    background-color: rgb(175, 175, 175);
+    position: relative;
+    height: 10vh;
+    width: 50vw;
+    left: 25vw;
+    right: 25vw;
+}
+.msgVitoria p{
+    color:black;
+}
+
+@media only screen and (min-width: 768px){
+    body{
+        background-image: url("../img/background-desktop.jpg");
+        background-size: cover;
+        background-repeat: no-repeat;
+    }
 }
